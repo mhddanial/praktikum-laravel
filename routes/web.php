@@ -1,31 +1,29 @@
 <?php
 
 use App\Http\Controllers\ListBarangController;
+use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/user/{id}', function ($id) {
-    return 'User dengan ID ' . $id;
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/product', function () {
+    return view('product');
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', function () {
-        return 'Admin Dashboard';
-    });
-    Route::get('/users', function () {
-        return 'Admin Users';
-    });
+
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/users', [AdminUsersController::class, 'index']);
+    
 });
 
-// Route::get('/listbarang/{id}/{nama}', function ($id, $nama) {
-//     return view ('list_barang', compact('id', 'nama'));
-// });
-
-Route::get('/listbarang/{id}/{nama}', [ListBarangController::class, 'tampilkan']);
+Route::get('/listbarang', [ListBarangController::class, 'tampilkan']);
