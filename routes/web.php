@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ListBarangController;
+use App\Http\Controllers\ListProductController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,18 +13,10 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/product', function () {
-    return view('product');
+Route::get('/praktikum_5', function () {
+    return view('praktikum_5');
 });
 
-Route::prefix('admin')->group(function () {
+Route::get('/list_product', [ListProductController::class, 'tampilkan']);
 
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/users', [AdminUsersController::class, 'index']);
-    
-});
-
-Route::get('/listbarang', [ListBarangController::class, 'tampilkan']);
+Route::get('/product', [ProductController::class, 'index']);
