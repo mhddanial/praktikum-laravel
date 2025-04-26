@@ -1,4 +1,4 @@
-@extends('layout.list')
+@extends('layouts.list')
 
 <div>
     @section('title', 'Product')
