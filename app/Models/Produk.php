@@ -9,4 +9,5 @@ class Produk extends Model
 {
     use HasFactory;
     protected $table = 'tblproduk';
+    public $timestamps = false;
 }

@@ -15,7 +15,9 @@
     <!-- Main content -->
     <main class="container mx-auto mt-10 px-4">
         <div class="bg-white shadow-md rounded-lg p-6">
-            <h2 class="text-xl font-semibold mb-4">@yield('page_title', 'Judul Halaman')</h2>
+            <h1 class="text-4xl font-black text-gray-900 text-center my-10">
+                @yield('page_title', 'Laravel App')
+            </h1>
             @yield('content')
         </div>
     </main>
